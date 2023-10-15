@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: check-duplicate-service-app
+  labels:
+    app: check-duplicate-service-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: check-duplicate-service-app
+  template:
+    metadata:
+      labels:
+        app: check-duplicate-service-app
+    spec:
+      containers:
+        - name: check-duplicate-service-app
+          image: docker.io/janescience/check-duplicate-service:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8085
