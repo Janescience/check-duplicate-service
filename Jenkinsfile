@@ -39,7 +39,7 @@ pipeline {
     stage('Deploying spring cloud check-duplicate-service container to Kubernetes') {
       steps {
         script {
-          kubernetesDeploy(configs: "deployment.yaml", "service.yaml")
+          kubernetesDeploy(configs: "deployment.yml", "service.yml")
         }
       }
     }
