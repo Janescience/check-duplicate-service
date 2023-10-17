@@ -5,3 +5,9 @@
       command : docker build -t check-duplicate-service:latest .
       args : 
         chdir: /opt/docker/check-duplicate-service
+    
+    - name : create tag to push image into dockerhub
+      command : docker tag check-duplicate-service:latest janescience/check-duplicate-service:latest
+
+    - name : push docker image
+      command : docker push janescience/check-duplicate-service:latest
