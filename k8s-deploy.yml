@@ -8,3 +8,6 @@
 
     - name : create service for check-duplicate
       command : kubectl apply -f /opt/k8s/check-duplicate-service/service.yml
+
+    - name : restart deployment
+      command : kubectl rollout restart deployment.apps/check-duplicate-service-app
