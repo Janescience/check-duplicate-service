@@ -11,6 +11,3 @@
 
     - name : push docker image
       command : docker push janescience/check-duplicate-service:latest
-    
-    # - name : delete old image
-    #   command : docker rmi $(docker images --filter "dangling=true" -q --no-trunc)

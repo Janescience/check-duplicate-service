@@ -3,6 +3,7 @@ kind: Service
 metadata:
   name: check-duplicate-svc
 spec:
+  type : LoadBalancer
   ports:
     - port: 80
       targetPort: 8085

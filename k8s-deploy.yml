@@ -1,0 +1,10 @@
+---
+- hosts : kubernetes
+  user : root
+
+  tasks :
+    - name : deploy check-duplicate on kubernetes
+      command : kubectl apply -f /opt/k8s/check-duplicate-service/deployment.yml
+
+    - name : create service for check-duplicate
+      command : kubectl apply -f /opt/k8s/check-duplicate-service/service.yml
