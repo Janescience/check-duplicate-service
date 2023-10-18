@@ -26,3 +26,8 @@
     - name: Remove images with the tag "none"
       command: docker rmi -f $(docker images -f "dangling=true" -q)
       ignore_errors: yes
+    
+    - name : remove docker image
+      command : docker rmi -f janescience/check-duplicate-service
+      ignore_errors: yes
+    
