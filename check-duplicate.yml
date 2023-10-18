@@ -11,3 +11,6 @@
 
     - name : push docker image
       command : docker push janescience/check-duplicate-service:latest
+
+    - name : run docker image
+      command : docker run -d --name check-duplicate-service -p 8085:8085 janescience/check-duplicate-service:latest
