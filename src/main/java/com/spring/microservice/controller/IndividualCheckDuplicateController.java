@@ -23,7 +23,7 @@ public class IndividualCheckDuplicateController {
     @GetMapping
     public  String serviceName() {
         log.info("CHECK DUPLICATE SERVICE");
-        return "CHECK DUPLICATE SERVICE 1";
+        return "CHECK DUPLICATE SERVICE 2";
     }
 
 
