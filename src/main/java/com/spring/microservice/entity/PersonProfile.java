@@ -12,6 +12,6 @@ public class PersonProfile {
     
     @Id
     private Long personId;
-
     private Long sessionNo;
+    private String cisNo;
 }
