@@ -20,14 +20,6 @@
       command : docker rm check-duplicate-service
       ignore_errors: yes
 
-    # - name : run docker image
-    #   command : docker run -d --name check-duplicate-service -p 8085:8085 janescience/check-duplicate-service:latest
-
-    - name: Remove images with the tag "none"
-      command: docker rmi -f $(docker images -f "dangling=true" -q)
-      ignore_errors: yes
-    
     - name : remove docker image
       command : docker rmi -f janescience/check-duplicate-service
       ignore_errors: yes
-    
