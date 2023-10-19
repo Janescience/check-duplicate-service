@@ -7,5 +7,5 @@ import com.spring.microservice.entity.PersonProfile;
 
 @Repository
 public interface PersonProfileRepository extends JpaRepository<PersonProfile,Long> {
-    
+    PersonProfile findByCisNo(String cisNo);
 }

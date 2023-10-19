@@ -22,16 +22,15 @@ public class IndividualCheckDuplicateController {
 
     @GetMapping
     public  String serviceName() {
-        log.info("CHECK DUPLICATE SERVICE");
-        return "CHECK DUPLICATE SERVICE 2";
+        log.info("CHECK DUPLICATE INDIVIDUAL SERVICE");
+        return "CHECK DUPLICATE INDIVIDUAL SERVICE";
     }
 
-
-    @GetMapping("/{personId}")
-    public ResponseEntity<?> individual(@PathVariable Long personId) {
+    @GetMapping("/{cisNo}")
+    public ResponseEntity<?> individual(@PathVariable String cisNo) {
         log.info("CHECK DUPLICATE PROFILE CALLED");
         try {
-            PersonProfile personProfile =  individualCheckDuplicateService.individual(personId);
+            PersonProfile personProfile =  individualCheckDuplicateService.individual(cisNo);
             if(personProfile != null){
                 return ResponseEntity.ok(new MsgResponse("Duplicate profile.","200","success",personProfile));
             }else{
