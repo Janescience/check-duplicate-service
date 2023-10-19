@@ -23,6 +23,11 @@ If run with Docker not require Java & Maven
 
 `docker run -d --name check-duplicate-service -p 8085:8085 check-duplicate-service`
 
+## Path Active
+
+- http://localhost:8085/check-duplicate/individual (GET)
+- http://localhost:8085/check-duplicate/individual/{cisNo} (GET)
+
 ## Build .jar
 
 File .jar output to /target
