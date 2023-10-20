@@ -16,12 +16,7 @@ spec:
     spec:
       containers:
         - name: check-duplicate-service-app
-          image: docker.io/janescience/check-duplicate-service:latest
+          image: janescience/check-duplicate-service:latest
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8085
-  strategy:
-    type: RollingUpdate
-    rollingUpdate:
-      maxSurge: 1
-      maxUnavailable: 1
