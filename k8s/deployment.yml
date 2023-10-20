@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: check-duplicate-service-app
-          image: janescience/check-duplicate-service:latest
+          image: janescience/check-duplicate-service
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8085
