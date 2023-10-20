@@ -3,6 +3,10 @@ pipeline {
     tools{
         maven 'maven_3_5_0'
     }
+    environment {
+        DOCKER_HOME = '/usr/local/bin/docker'  // Path to the Docker executable
+        DOCKERHUB_CREDENTIALS = credentials('dockerhub-pwd')
+    }
     stages{
         stage('Build Maven'){
             steps{
@@ -10,21 +14,20 @@ pipeline {
                 sh 'mvn clean install'
             }
         }
-        stage('Build docker image'){
+        stage('Build image'){
             steps{
                 script{
-                    sh 'docker build -t janescience/check-duplicate-service:latest .'
+                    sh '${DOCKER_HOME} build -t janescience/check-duplicate-service:latest .'
                 }
             }
         }
+        
         stage('Push image to Hub'){
             steps{
                 script{
-                   withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhubpwd')]) {
-                        sh 'docker login -u janescience -p ${dockerhubpwd}'
-                    }
-                    sh 'docker tag check-duplicate-service:latest janescience/check-duplicate-service:latest'
-                    sh 'docker push janescience/check-duplicate-service:latest'
+                    sh '${DOCKER_HOME} login -u janescience -p Top2233223233'
+                    sh '${DOCKER_HOME} tag check-duplicate-service:latest janescience/check-duplicate-service:latest'
+                    sh '${DOCKER_HOME} push janescience/check-duplicate-service:latest'
                 }
             }
         }
