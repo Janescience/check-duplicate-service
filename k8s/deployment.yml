@@ -5,6 +5,7 @@ metadata:
   labels:
     app: check-duplicate-service-app
 spec:
+  revisionHistoryLimit: 0
   replicas: 2
   selector:
     matchLabels:
