@@ -28,7 +28,7 @@ pipeline {
                         sh '${DOCKER_HOME} login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}'
                         sh '${DOCKER_HOME} tag check-duplicate-service:latest janescience/check-duplicate-service:latest'
                         sh '${DOCKER_HOME} push janescience/check-duplicate-service:latest'
-                        sh '${DOCKER_HOME} docker rmi -f $(docker images -f "dangling=true" -q)'
+                        sh '${DOCKER_HOME} rmi -f $(${DOCKER_HOME} images -f "dangling=true" -q)'
                     }
                 }
             }
